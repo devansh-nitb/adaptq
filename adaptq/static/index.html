@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdapTQ Insight</title>
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="glass-panel main-header">
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                <h1>AdapTQ Insight</h1>
+            </div>
+            <div class="status-indicator">
+                <div class="pulse-dot"></div>
+                <span id="connection-status">Connecting...</span>
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="grid-container">
+            <!-- Metrics Row -->
+            <div class="metrics-row">
+                <div class="metric-card glass-panel highlight-purple">
+                    <div class="metric-icon">💾</div>
+                    <div class="metric-content">
+                        <h3>Max Memory Compression</h3>
+                        <div class="metric-value" id="val-compression">--</div>
+                        <p class="metric-subtext">Compared to FP16 Baseline</p>
+                    </div>
+                </div>
+                
+                <div class="metric-card glass-panel highlight-cyan">
+                    <div class="metric-icon">🚀</div>
+                    <div class="metric-content">
+                        <h3>Best Throughput</h3>
+                        <div class="metric-value" id="val-throughput">--</div>
+                        <p class="metric-subtext">Tokens / Second</p>
+                    </div>
+                </div>
+
+                <div class="metric-card glass-panel highlight-emerald">
+                    <div class="metric-icon">🎯</div>
+                    <div class="metric-content">
+                        <h3>Quality Preservation</h3>
+                        <div class="metric-value" id="val-quality">--</div>
+                        <p class="metric-subtext">Cosine Similarity (4-bit)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="charts-row">
+                <div class="chart-container glass-panel">
+                    <div class="chart-header">
+                        <h2>Memory Footprint</h2>
+                        <span class="badge">Bits / Dimension</span>
+                    </div>
+                    <div class="canvas-wrapper">
+                        <canvas id="memoryChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-container glass-panel">
+                    <div class="chart-header">
+                        <h2>Latency Profile</h2>
+                        <span class="badge">Microseconds</span>
+                    </div>
+                    <div class="canvas-wrapper">
+                        <canvas id="latencyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quality Bar -->
+            <div class="quality-container glass-panel">
+                <div class="chart-header">
+                    <h2>Quality vs Compression Trade-off</h2>
+                </div>
+                <div class="canvas-wrapper quality-wrapper">
+                    <canvas id="qualityChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
